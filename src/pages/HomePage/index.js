@@ -1,15 +1,12 @@
 import { useState } from "react";
-import {FiSettings} from "react-icons/fi"
+import { FiSettings } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-
 export default function Home() {
-  
   const [show, setShow] = useState(false);
-  const [settings, setSettings] = useState("hidden")
-const MainSession =`absolute right-4 w-60 h-40 bg-[#979797] text-white flex-col items-center justify-center  rounded space-y-4   ${settings}  `
+  const [settings, setSettings] = useState("hidden");
+  const MainSession = `absolute right-4 w-60 h-40 bg-[#979797] text-white flex-col items-center justify-center  rounded space-y-4   ${settings}  `;
 
-  
   return (
     <main className="bg-[#424242]   bg-cover bg-no-repeat   flex-1 grid grid-row-2 flex-wrap w-full h-screen p-8">
       {/* header */}
@@ -34,19 +31,19 @@ const MainSession =`absolute right-4 w-60 h-40 bg-[#979797] text-white flex-col 
             >
               {/* btn1 */}
               <li>
-                  <button className="text-white">
-                    CAC Business Registration
-                  </button>
+                <button className="text-white">
+                  CAC Business Registration
+                </button>
               </li>
               <li>
-              <Link to="/about">
-              <button className="text-white">About Us </button>
-              </Link>
+                <Link to="/about">
+                  <button className="text-white">About Us </button>
+                </Link>
               </li>
               <li>
-              <Link to={"/contact"}>
-              <button className="text-white">Contact Us</button>
-              </Link>
+                <Link to={"/contact"}>
+                  <button className="text-white">Contact Us</button>
+                </Link>
               </li>
 
               {/* btn2 */}
@@ -58,71 +55,52 @@ const MainSession =`absolute right-4 w-60 h-40 bg-[#979797] text-white flex-col 
                 </ul>
               </li>
 
-                <li>
-
-                  <ul >
-                  
-
-
-
-
-                     
-                    <li className="text-xs text-white  items-center   flex flex-col ">
-                      <img
-
-                      onClick={()=>{
-                        if(settings==="hidden"){
-                          setSettings("flex") ;
-                        } else{
-                          setSettings("hidden")
+              <li>
+                <ul>
+                  <li className="text-xs text-white  items-center   flex flex-col ">
+                    <img
+                      onClick={() => {
+                        if (settings === "hidden") {
+                          setSettings("flex");
+                        } else {
+                          setSettings("hidden");
                         }
                       }}
                       className="rounded-full w-8 hover:cursor-pointer hover:border hover:border-gray-400 border"
-                      />
-                     </li>
+                    />
+                  </li>
 
-                                         {/* Logout */}
-                    <li className={MainSession}>
+                  {/* Logout */}
+                  <li className={MainSession}>
+                    <div className="flex items-center space-x-2 w-11/12 flex-row">
+                      <div></div>
+                      <div></div>
 
-                      <div className="flex items-center space-x-2 w-11/12 flex-row">
-                        <div>
-                      
-                        </div>
-                        <div>
-                        </div>
-
-                        <div className="flex flex-1  justify-end">
-                          <FiSettings  className="hover:cursor-pointer hover:text-gray-200"/>
-                        </div>
+                      <div className="flex flex-1  justify-end">
+                        <FiSettings className="hover:cursor-pointer hover:text-gray-200" />
                       </div>
-                      <div className="flex items-center text-xs space-x-2  flex-row">
-                      </div>
+                    </div>
+                    <div className="flex items-center text-xs space-x-2  flex-row"></div>
                     <button
-                    onClick={() => {
-                    }}
+                      onClick={() => {}}
+                      className="bg-[#FFA000] text-white font-semibold pt-2 pb-2 pl-6 pr-6 rounded-xl text-xs "
+                    >
+                      Logout{" "}
+                    </button>
+                    <li className="text-xs">JadTech @ 2023</li>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link to={`/login`}>
+                  <button
+                    onClick={() => {}}
                     className="bg-[#FFA000] text-white font-semibold pt-2 pb-2 pl-6 pr-6 rounded-xl text-xs "
                   >
-                    Logout{" "}
+                    Login{" "}
                   </button>
-                  <li className="text-xs">JadTech @ 2023</li>
-
-                    </li>
-
-
-                  </ul>
-                  
-                </li>
-                <li>
-                <Link to={`/login`}>
-                <button
-                  onClick={() => {
-                  }}
-                  className="bg-[#FFA000] text-white font-semibold pt-2 pb-2 pl-6 pr-6 rounded-xl text-xs "
-                >
-                  Login{" "}
-                </button>
                 </Link>
-                </li>
+              </li>
               {/* btn3 */}
             </ul>
           </div>
@@ -156,10 +134,10 @@ const MainSession =`absolute right-4 w-60 h-40 bg-[#979797] text-white flex-col 
         <div className="space-y-4 md:items-start lg:items-center xl:pr-8 flex flex-col items-center justify-center flex-1 ">
           {/* notes */}
           <div className="w-96 ">
-              <h1 className="text-4xl font-semibold text-center text-white font-mono">
-                {" "}
-                Welcome 
-              </h1>
+            <h1 className="text-4xl font-semibold text-center text-white font-mono">
+              {" "}
+              Welcome
+            </h1>
 
             <h1 className="text-4xl font-semibold text-center text-white font-mono">
               {" "}
@@ -178,21 +156,21 @@ const MainSession =`absolute right-4 w-60 h-40 bg-[#979797] text-white flex-col 
           {/* button1 */}
           <div className="space-y-4 md:w-full  md:items-center md:flex flex flex-col justify-center items-center lg:flex-row  lg:space-x-4  ">
             <div className="items-end pt-4">
-            <Link to="/registration">
-            <button className="bg-orange-400 w-40 h-12 font-mono rounded-xl text-white">
-              GET STARTED
-            </button>
-            </Link>
+              <Link to="/registration">
+                <button className="bg-orange-400 w-40 h-12 font-mono rounded-xl text-white">
+                  GET STARTED
+                </button>
+              </Link>
             </div>
             {/* button2 */}
 
-              <div>
+            <div>
               <Link to="/dashboard">
-              <button className=" w-60 h-12 pl-2 pr-2 font-mono rounded-xl text-white border">
-                VIEW DASHBOARD{" "}
-              </button>
+                <button className=" w-60 h-12 pl-2 pr-2 font-mono rounded-xl text-white border">
+                  VIEW DASHBOARD{" "}
+                </button>
               </Link>
-              </div>
+            </div>
           </div>
         </div>
 

@@ -3,21 +3,34 @@ import React from "react";
 import { FaHome, FaTasks, FaInbox } from "react-icons/fa";
 import Home from "./Home";
 import { Graph } from "../../components/Graph";
-import {RecentOrders} from "../../components/RecentOrders"
+import { RecentOrders } from "../../components/RecentOrders";
 import { DataInput } from "./DataInput";
+import app from "../../utils/firebase/firebase";
+// import { getAuth, signOut } from "firebase/auth";
+// import { useNavigate } from "react-router";
 export default function Dashboard() {
-  const [home, setHome] = React.useState("flex")
-  const [input, setInput] = React.useState("hidden")
-  const hidden = `${home}  flex-col  ml-16 md:ml-24 lg:ml-36 w-full`
-  const hidden2 =`${input} flex-col  ml-16 md:ml-24 lg:ml-36 w-full`
+  // const auth = getAuth(app);
+  // const navigate = useNavigate();
+  const [home, setHome] = React.useState("flex");
+  const [input, setInput] = React.useState("hidden");
+  const hidden = `${home}  flex-col  ml-16 md:ml-24 lg:ml-36 w-full`;
+  const hidden2 = `${input} flex-col  ml-16 md:ml-24 lg:ml-36 w-full`;
 
-
-
-
-
+  // const handleLogout = async () => {
+  //   try {
+  //     await signOut(auth);
+  //     navigate("/login");
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // };
 
   return (
-    <div className={`flex flex-1  ${input==="hidden"? "h-[156vh]":"h-[100vh]"} lg:h-[100vh]  bg-gray-400`}>
+    <div
+      className={`flex flex-1  ${
+        input === "hidden" ? "h-[156vh]" : "h-[100vh]"
+      } lg:h-[100vh]  bg-gray-400`}
+    >
       {/* dashboard headers  */}
       <div className=" flex-col space-y-8 fixed   items-center lg:w-40  w-20 bg-[#424242] h-screen   justify-center flex">
         {/* Logo */}
@@ -32,10 +45,9 @@ export default function Dashboard() {
         {/* Home */}
         <div className="">
           <button
-            onClick={()=>{
-              setHome("flex")
-              setInput("hidden")
-
+            onClick={() => {
+              setHome("flex");
+              setInput("hidden");
             }}
             className="hover:cursor-pointer border-2 p-2 rounded lg:w-32 flex-row space-x-4 flex items-center justify-center"
           >
@@ -48,11 +60,10 @@ export default function Dashboard() {
         {/* Task */}
         <div className="">
           <button
-          onClick={()=>{
-            setInput("flex")
-            setHome("hidden")
-
-          }}
+            onClick={() => {
+              setInput("flex");
+              setHome("hidden");
+            }}
             className="hover:cursor-pointer p-2 border-2 rounded lg:w-32 flex-row space-x-4 flex items-center justify-center"
           >
             <FaTasks className="text-white text-2xl" />
@@ -65,9 +76,7 @@ export default function Dashboard() {
 
         {/* Inbox */}
         <div className="">
-          <button
-            className="hover:cursor-pointer p-2 border-2 rounded lg:w-32 flex-row space-x-4 flex items-center justify-center"
-          >
+          <button className="hover:cursor-pointer p-2 border-2 rounded lg:w-32 flex-row space-x-4 flex items-center justify-center">
             <FaInbox className="text-white text-2xl" />
             <h1 className="hidden lg:block hover:text-gray-300 text-white">
               Inbox
@@ -79,8 +88,7 @@ export default function Dashboard() {
         {/* Inbox */}
         <div className="flex flex-1 items-end pb-4">
           <button
-            onClick={() => {
-            }}
+            onClick={() => {}}
             className="hover:cursor-pointer p-2 h-8 border-2 rounded lg:w-32 flex-row space-x-4 flex items-center justify-center"
           >
             <svg
@@ -110,17 +118,17 @@ export default function Dashboard() {
         </div>
         <div className="lg:flex  lg:justify-center">
           <div className=" flex pt-2 pl-3  justify-center">
-          <Graph />
+            <Graph />
           </div>
 
           <div className=" pt-2 pl-3 flex justify-center  ">
-          <RecentOrders/>
+            <RecentOrders />
           </div>
         </div>
       </div>
 
       <div className={hidden2}>
-            <DataInput/>
+        <DataInput />
       </div>
     </div>
   );

@@ -1,13 +1,20 @@
-import './App.css';
-import BusinessReg from './pages/BusinessReg';
-import Dashboard from './pages/Dashboard';
-import Home from './pages/HomePage';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
+import React from "react";
+import "./App.css";
+import BusinessRegComponent from "./pages/BusinessReg";
+import DashboardComponent from "./pages/Dashboard";
+import HomeComponent from "./pages/HomePage";
+import { Route, Routes } from "react-router-dom";
+import PrivateRoute from "./utils/auth/PrivateRoute";
+
 function App() {
   return (
     <div className="App">
-    <Login/>
+      <Routes>
+        <Route exact path="/home" element={<HomeComponent />} />
+        ;
+        <Route exact path="/dashboard" element={<DashboardComponent />} />;
+        <Route exact path="/registration" element={<BusinessRegComponent />} />;
+      </Routes>
     </div>
   );
 }
